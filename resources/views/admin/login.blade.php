@@ -5,7 +5,7 @@
         Puryaideu<span class="light">App</span>
     </h1>
 
-    <p class="login-text">Login</p>
+    <p class="login-text">Admin Login</p>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf

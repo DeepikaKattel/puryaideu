@@ -71,76 +71,71 @@
 {{--    </div>--}}
 {{--</div>--}}
 
-<h2>Welcome to Puryaideu App! Please login..</h2>
-<div class="container" id="container">
-    <div class="form-container sign-up-container">
-        <form action="#">
-            <h1>Create Account</h1>
-            <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
+
+<div class="containerCustomer go-register">
+    <!-- Login Form Starts -->
+    <div class="form__container form__container-login">
+        <form action="" class="form">
+            <h3 class="form__heading"> Sign In</h3>
+            <ul class="list list__inline list__social">
+                <li class="list__item list__social__item"><a href="#" class="list__link"><i
+                            class="list__icon fa fa-facebook-f"></i></a></li>
+                <li class="list__item list__social__item"><a href="#" class="list__link"><i
+                            class="list__icon fa fa-google-plus-g"></i></a>
+                </li>
+                <li class="list__item list__social__item"><a href="#" class="list__link"><i
+                            class="list__icon fa fa-linkedin-in"></i></a>
+                </li>
+            </ul>
+            <p class="form__text">or use your account</p>
+            <input type="email" placeholder="email" class="form__field">
+            <input type="password" placeholder="password" class="form__field">
+            <p class="form__text">Forgot your password?</p>
+            <button type="submit" class="btn-login btn--main">Sign In</button>
         </form>
     </div>
-    <div class="form-container sign-in-container">
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <h1>Sign in</h1>
-            <div class="social-container">
-                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <span>or use your account</span>
-            <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
-
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="password" required autocomplete="current-password">
-
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
+    <!-- Login Form Ends -->
+    <!-- Register Form Starts -->
+    <div class="form__container form__container-register">
+        <form action="" class="form">
+            <h3 class="form__heading"> Create Account</h3>
+            <ul class="list list__inline list__social">
+                <li class="list__item list__social__item"><a href="#" class="list__link"><i
+                            class="list__icon fa fa-facebook-f"></i></a></li>
+                <li class="list__item list__social__item"><a href="#" class="list__link"><i
+                            class="list__icon fa fa-google-plus-g"></i></a>
+                </li>
+                <li class="list__item list__social__item"><a href="#" class="list__link"><i
+                            class="list__icon fa fa-linkedin-in"></i></a>
+                </li>
+            </ul>
+            <p class="form__text">or use your email for registeration</p>
+            <input type="text" placeholder="name" class="form__field">
+            <input type="email" placeholder="email" class="form__field">
+            <input type="password" placeholder="password" class="form__field">
+            <button type="submit" class="btn-login btn--main">Sign Up</button>
         </form>
     </div>
+    <!-- Register Form Ends -->
+    <!-- Overlay container Starts -->
     <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>To keep connected with us please login with your personal info</p>
-                <button class="ghost" id="signIn">Sign In</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start journey with us</p>
-                <button class="ghost" id="signUp">Sign Up</button>
-            </div>
+        <!-- Right Overlay Starts -->
+        <div class="overlay overlay--right">
+            <h3 class="overlay__heading">Hello Friend</h3>
+            <p class="overlay__desc">Enter your personal details and start journey with us</p>
+            <button type="button" id="go-register" class="btn-login btn--main-outline">Sign Up</button>
         </div>
+        <!-- Right Overlay Ends -->
+        <!-- Left Overlay Starts -->
+        <div class="overlay overlay--left">
+            <h3 class="overlay__heading">Welcome Back!</h3>
+            <p class="overlay__desc">Keep connected with us please login with your personal info</p>
+            <button type="button" id="go-login" class="btn-login btn--main-outline">Sign In</button>
+        </div>
+        <!-- Left Overlay Ends -->
     </div>
+    <!-- Overlay Container Ends -->
 </div>
-
-{{--<footer>--}}
-{{--    <p>--}}
-{{--        Created with <i class="fa fa-heart"></i> by--}}
-{{--        <a target="_blank" href="https://florin-pop.com">Florin Pop</a>--}}
-{{--        - Read how I created this and how you can join the challenge--}}
-{{--        <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.--}}
-{{--    </p>--}}
-{{--</footer>--}}
-
 
 
 

@@ -1,11 +1,25 @@
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+(function (document) {
+    // Cache DOM
+    const $goLogin = document.querySelector('#go-login'),
+        $goRegister = document.querySelector('#go-register'),
+        $container = document.querySelector('.containerCustomer'),
+        $overlayContainer = document.querySelector('.overlay-container');
 
-signUpButton.addEventListener('click', () => {
-    container.classList.add("right-panel-active");
-});
+    _toggleForm = () => {
+        if ($container.classList.contains('go-register')) {
+            $container.classList.remove('go-register')
+            $container.classList.add('go-login')
+            $overlayContainer.classList.add('animateWidth')
+            $overlayContainer.addEventListener('webkitTransitionEnd', () => $overlayContainer.classList.remove('animateWidth'))
+        } else {
+            $container.classList.remove('go-login')
+            $container.classList.add('go-register')
+            $overlayContainer.classList.add('animateWidth')
+            $overlayContainer.addEventListener('webkitTransitionEnd', () => $overlayContainer.classList.remove('animateWidth'))
+        }
+    }
 
-signInButton.addEventListener('click', () => {
-    container.classList.remove("right-panel-active");
-});
+
+    $goLogin.addEventListener('click', _toggleForm);
+    $goRegister.addEventListener('click', _toggleForm);
+})(document);
