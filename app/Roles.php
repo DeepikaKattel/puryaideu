@@ -22,9 +22,7 @@ class Roles extends Model
         return $this->belongsTo(User::class);
     }
 
-//    public function hasRole($id) {
-//        return $this->user_role == $id ? TRUE : FALSE;
-//    }
+
 
     public function isCustomer() {
         return $this->user_role == 3 ? TRUE : FALSE;

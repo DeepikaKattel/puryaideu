@@ -12,7 +12,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/login.js') }}" defer></script>
-    <link rel="stylesheet" href="css/register.css">
+{{--    <link rel="stylesheet" href="{{ asset('css/register.css')}}">--}}
+    <link rel="stylesheet" href="{{ asset('css/adminLogin.css')}}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
