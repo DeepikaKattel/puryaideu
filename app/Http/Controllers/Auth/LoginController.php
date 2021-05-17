@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -41,4 +44,78 @@ class LoginController extends Controller
     public function admin(){
         return view('admin.login');
     }
+    public function rider(){
+        return view('rider.login');
+    }
+
+    public function loginCustomer(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        $user = User::query()->where([
+            "email" => $request->email,
+            "role" => 3
+        ])->get();
+
+        if (count($user) >= 1){
+            $credentials = $request->only('email', 'password');
+
+            if (Auth::attempt($credentials) && Auth::user()){
+                return redirect()->intended('home');
+            }
+        }
+
+        return view('auth.login')->with('error', 'Oppes! You have entered invalid credentials');
+    }
+
+    public function loginAdmin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        $user = User::query()->where([
+            "email" => $request->email,
+            "role" => 1
+        ])->get();
+
+        if (count($user) >= 1){
+            $credentials = $request->only('email', 'password');
+
+            if (Auth::attempt($credentials) && Auth::user()){
+                return redirect()->intended('admin/dashboard');
+            }
+        }
+
+        return view('admin.login')->with('error', 'Oppes! You have entered invalid credentials');
+    }
+
+    public function loginRider(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        $user = User::query()->where([
+            "email" => $request->email,
+            "role" => 2
+        ])->get();
+
+        if (count($user) >= 1){
+            $credentials = $request->only('email', 'password');
+
+            if (Auth::attempt($credentials) && Auth::user()){
+                return redirect()->intended('home');
+            }
+        }
+
+        return view('rider.login')->with('error', 'Oppes! You have entered invalid credentials');
+    }
+
+
 }

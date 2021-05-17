@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\User;
+
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -26,7 +27,6 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('puryaideu@@12'),
             'approved_at' => now(),
             'remember_token' => Str::random(10),
-            'timestamps' => now(),
         ]);
     }
 }

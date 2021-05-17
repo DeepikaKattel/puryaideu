@@ -55,12 +55,13 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'gender' => ['required'],
             'role' => ['required'],
-            'dob'=> ['required|date|before:-16 years'],
+            'dob'=> ['required'],
             'contact1' => ['required'],
             'contact2' => ['required'],
             'city' => ['required'],
-            'area' => ['required'],
-            'approved_at' => ['required']
+            'area' => ['required']
+
+
         ]);
     }
 

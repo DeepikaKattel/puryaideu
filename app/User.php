@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','gender','dob','contact1','contact2','city','area'
+        'name','role','email', 'password','gender','dob','contact1','contact2','city','area'
     ];
 
     /**
@@ -36,4 +36,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role() {
+        return $this->belongsTo(Roles::class);
+    }
+
+    public function isAdmin() {
+        return $this->role == 1 ? TRUE : FALSE;
+    }
+
+    public function isRider() {
+        return $this->role == 2 || $this->user_role == 2 ? TRUE : FALSE;
+    }
+
+
+    public function isCustomer() {
+        return $this->role == 3 ? TRUE : FALSE;
+    }
 }

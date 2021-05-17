@@ -7,7 +7,7 @@
 
     <p class="login-text">Admin Login</p>
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="/login/admin">
         @csrf
 
         <div class="form-field">
@@ -32,6 +32,7 @@
                 </span>
             @enderror
         </div>
+
 
         <div class="form-field">
             <button type="submit" class="login-btn">Login</button>

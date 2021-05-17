@@ -15,7 +15,7 @@
 {{--                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>--}}
 
 {{--                            <div class="col-md-6">--}}
-{{--                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
+{{--                                <input id="email" type="email" class="form__field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
 
 {{--                                @error('email')--}}
 {{--                                    <span class="invalid-feedback" role="alert">--}}
@@ -29,7 +29,7 @@
 {{--                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
 
 {{--                            <div class="col-md-6">--}}
-{{--                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">--}}
+{{--                                <input id="password" type="password" class="form__field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">--}}
 
 {{--                                @error('password')--}}
 {{--                                    <span class="invalid-feedback" role="alert">--}}
@@ -75,7 +75,7 @@
 <div class="containerCustomer go-register">
     <!-- Login Form Starts -->
     <div class="form__container form__container-login">
-        <form method="POST" action="{{ route('login') }}" class="form">
+        <form method="POST" action="/login/customer" class="form">
             @csrf
             <h3 class="form__heading"> Sign In</h3>
             <ul class="list list__inline list__social">
@@ -124,29 +124,113 @@
                 </li>
             </ul>
             <p class="form__text">or use your email for registeration</p>
-            <input id="name" type="text" placeholder="Name" class="form__field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            <div class="form-group row">
 
-            @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            <input id="email" type="email" placeholder="Email" class="form__field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                <div class="col-md-6">
+                    <input id="name" type="text" placeholder="Name" class="form__field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            <input id="password" type="password" placeholder="Password" class="form__field @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <input id="email" type="email" placeholder="Email" class="form__field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group row">
 
-            <input id="password-confirm" type="password" placeholder="Retype Password" class="form__field" name="password_confirmation" required autocomplete="new-password">
+                <div class="col-md-6">
+                    <input id="password" type="password" placeholder="Password" class="form__field @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+
+                    <input id="password-confirm" type="password" placeholder="Retype Password" class="form__field" name="password_confirmation" required autocomplete="new-password">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <select class="form__field" name="gender">
+                        <option value="" selected="" disabled>Select Gender</option>
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                        <option value="3">Others</option>
+
+                    </select>
+                </div>
+
+
+                <div class="col-md-6">
+                    <input type="text" class="form__field @error('dob') is-invalid @enderror" onfocus="(this.type='date')" placeholder="Date of Birth" name="dob" value="{{ old('dob') }}" required autocomplete="dob">
+
+                    @error('dob')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <input type="text" class="form__field @error('contact1') is-invalid @enderror" placeholder="Contact Number" name="contact1" value="{{ old('contact1') }}" required autocomplete="contact1">
+
+                    @error('contact')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form__field @error('contact2') is-invalid @enderror" placeholder="Alternate Contact Number" name="contact2" value="{{ old('contact2') }}" required autocomplete="contact2">
+
+                    @error('contact2')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-group row">
+
+                <div class="col-md-6">
+                    <input type="text" class="form__field @error('city') is-invalid @enderror" name="city" placeholder="City" value="{{ old('city') }}" required autocomplete="city">
+
+                    @error('city')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form__field @error('area') is-invalid @enderror" name="area" placeholder="Area" value="{{ old('area') }}" required autocomplete="area">
+
+                    @error('area')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="col-md-6">
+                    <input type="datetime-local" name="approved_at" value={{\Carbon\Carbon::now()}} hidden>
+                </div>
+            </div>
 
             <button type="submit" class="btn-login btn--main">Sign Up</button>
         </form>

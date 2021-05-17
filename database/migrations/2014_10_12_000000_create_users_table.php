@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('gender', ['Male', 'Female', 'Others']);
             $table->date('dob');
-            $table->integer('contact1');
-            $table->integer('contact2')->nullable();
+            $table->string('contact1');
+            $table->string('contact2')->nullable();
             $table->string('city');
             $table->string('area');
             $table->string('password');
