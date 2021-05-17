@@ -75,7 +75,8 @@
 <div class="containerCustomer go-register">
     <!-- Login Form Starts -->
     <div class="form__container form__container-login">
-        <form action="" class="form">
+        <form method="POST" action="{{ route('login') }}" class="form">
+            @csrf
             <h3 class="form__heading"> Sign In</h3>
             <ul class="list list__inline list__social">
                 <li class="list__item list__social__item"><a href="#" class="list__link"><i
@@ -88,8 +89,20 @@
                 </li>
             </ul>
             <p class="form__text">or use your account</p>
-            <input type="email" placeholder="email" class="form__field">
-            <input type="password" placeholder="password" class="form__field">
+            <input id="email" type="email" placeholder="Email" class="form__field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input id="password" type="password" placeholder="Password" class="form__field @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             <p class="form__text">Forgot your password?</p>
             <button type="submit" class="btn-login btn--main">Sign In</button>
         </form>
@@ -97,7 +110,8 @@
     <!-- Login Form Ends -->
     <!-- Register Form Starts -->
     <div class="form__container form__container-register">
-        <form action="" class="form">
+        <form method="POST" action="{{ route('register') }}" class="form">
+            @csrf
             <h3 class="form__heading"> Create Account</h3>
             <ul class="list list__inline list__social">
                 <li class="list__item list__social__item"><a href="#" class="list__link"><i
@@ -110,9 +124,30 @@
                 </li>
             </ul>
             <p class="form__text">or use your email for registeration</p>
-            <input type="text" placeholder="name" class="form__field">
-            <input type="email" placeholder="email" class="form__field">
-            <input type="password" placeholder="password" class="form__field">
+            <input id="name" type="text" placeholder="Name" class="form__field @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+            @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input id="email" type="email" placeholder="Email" class="form__field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input id="password" type="password" placeholder="Password" class="form__field @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
+            <input id="password-confirm" type="password" placeholder="Retype Password" class="form__field" name="password_confirmation" required autocomplete="new-password">
+
             <button type="submit" class="btn-login btn--main">Sign Up</button>
         </form>
     </div>
