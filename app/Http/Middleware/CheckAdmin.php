@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CheckApproved
+class CheckAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,8 +15,8 @@ class CheckApproved
      */
     public function handle($request, Closure $next)
     {
-        if (!auth()->user()->approved_at) {
-            return redirect()->route('approval');
+        if (!auth()->user()->isAdmin()) {
+            return redirect()->route('home');
         }
 
         return $next($request);

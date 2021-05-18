@@ -80,12 +80,12 @@
                 <h3 class="form__heading"> Sign In</h3>
                 <ul class="list list__inline list__social">
                     <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                                class="list__icon fa fa-facebook-f"></i></a></li>
+                                class="list__icon fab fa-facebook-f"></i></a></li>
                     <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                                class="list__icon fa fa-google-plus-g"></i></a>
+                                class="list__icon fab fa-google-plus-g"></i></a>
                     </li>
                     <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                                class="list__icon fa fa-linkedin-in"></i></a>
+                                class="list__icon fab fa-linkedin-in"></i></a>
                     </li>
                 </ul>
                 <p class="form__text">or use your account</p>
@@ -115,12 +115,12 @@
                 <h3 class="form__heading"> Create Account</h3>
                 <ul class="list list__inline list__social">
                     <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                                class="list__icon fa fa-facebook-f"></i></a></li>
+                                class="list__icon fab fa-facebook-f"></i></a></li>
                     <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                                class="list__icon fa fa-google-plus-g"></i></a>
+                                class="list__icon fab fa-google-plus-g"></i></a>
                     </li>
                     <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                                class="list__icon fa fa-linkedin-in"></i></a>
+                                class="list__icon fab fa-linkedin-in"></i></a>
                     </li>
                 </ul>
                 <p class="form__text">or use your email for registeration</p>

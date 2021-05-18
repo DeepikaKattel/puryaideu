@@ -27,6 +27,12 @@ Route::post('login/admin', 'Auth\LoginController@loginAdmin');
 Route::middleware(['approved'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 });
+Route::middleware(['admin'])->group(function () {
+    Route::get('/users_unapproved', 'UserController@unapproved')->name('admin.unapproved');
+    Route::get('/users/{user_id}/approve', 'UserController@approve')->name('admin.approve');
+
+    Route::get('/users/destroy/{id}', 'UserController@destroy')->name('u.destroy');
+});
 Route::get('/approval', 'HomeController@approval')->name('approval');
 Route::get('/admin/dashboard', 'HomeController@admin')->name('admin/dashboard');
 Route::get('/admin/login', 'Auth\LoginController@admin')->name('admin/login');

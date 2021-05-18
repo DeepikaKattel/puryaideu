@@ -11,7 +11,7 @@
         @csrf
 
         <div class="form-field">
-            <label for="email">Email</label>
+            <label for="email"><i class="fas fa-envelope"></i> Email</label>
             <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
 
             @error('email')
@@ -23,8 +23,8 @@
         </div>
 
         <div class="form-field">
-            <label for="password">Password</label>
-            <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="password" required autocomplete="current-password">
+            <label for="password"><i class="fas fa-key"></i>  Password</label>
+            <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" placeholder="Password" required autocomplete="current-password">
 
             @error('password')
             <span class="invalid-feedback" role="alert">

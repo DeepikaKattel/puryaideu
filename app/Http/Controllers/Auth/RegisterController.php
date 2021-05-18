@@ -10,6 +10,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+
 
 class RegisterController extends Controller
 {
@@ -77,13 +79,14 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'gender' => $data['gender'],
             'role' => $data['role'],
             'dob' => $data['dob'],
             'contact1' => $data['contact1'],
             'contact2' => $data['contact2'],
             'city' => $data['city'],
             'area' => $data['area'],
-            'approved_at' => $data['approved_at']
+            'approved_at' => now()
         ]);
     }
 

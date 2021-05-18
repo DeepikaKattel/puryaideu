@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\NewUser;
 use App\Rider;
 use App\User;
 use Illuminate\Http\Request;
@@ -129,6 +130,14 @@ class RiderController extends Controller
             'experience' => $request->input('experience'),
         ]);
         $rider->save();
-        return redirect()->intended('home');
+
+
+        $admin = User::where('role', 1)->first();
+        if ($admin) {
+            $admin->notify(new NewUser($user));
+        }
+
+        return $user;
+//        return redirect()->intended('home');
     }
 }

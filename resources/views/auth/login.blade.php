@@ -80,12 +80,12 @@
             <h3 class="form__heading"> Sign In</h3>
             <ul class="list list__inline list__social">
                 <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                            class="list__icon fa fa-facebook-f"></i></a></li>
+                            class="list__icon fab fa-facebook-f"></i></a></li>
                 <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                            class="list__icon fa fa-google-plus-g"></i></a>
+                            class="list__icon fab fa-google-plus-g"></i></a>
                 </li>
                 <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                            class="list__icon fa fa-linkedin-in"></i></a>
+                            class="list__icon fab fa-linkedin-in"></i></a>
                 </li>
             </ul>
             <p class="form__text">or use your account</p>
@@ -115,12 +115,12 @@
             <h3 class="form__heading"> Create Account</h3>
             <ul class="list list__inline list__social">
                 <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                            class="list__icon fa fa-facebook-f"></i></a></li>
+                            class="list__icon fab fa-facebook-f"></i></a></li>
                 <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                            class="list__icon fa fa-google-plus-g"></i></a>
+                            class="list__icon fab fa-google-plus-g"></i></a>
                 </li>
                 <li class="list__item list__social__item"><a href="#" class="list__link"><i
-                            class="list__icon fa fa-linkedin-in"></i></a>
+                            class="list__icon fab fa-linkedin-in"></i></a>
                 </li>
             </ul>
             <p class="form__text">or use your email for registeration</p>
@@ -166,9 +166,9 @@
                 <div class="col-md-6">
                     <select class="form__field" name="gender">
                         <option value="" selected="" disabled>Select Gender</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Others</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
 
                     </select>
                 </div>
@@ -229,9 +229,7 @@
                     @enderror
                 </div>
 
-                <div class="col-md-6">
-                    <input type="date" name="approved_at" hidden>
-                </div>
+
             </div>
 
             <button type="submit" formaction="{{ route('register') }}" class="btn-login btn--main">Sign Up</button>

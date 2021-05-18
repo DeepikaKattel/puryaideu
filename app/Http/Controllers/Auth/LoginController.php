@@ -84,10 +84,13 @@ class LoginController extends Controller
             "role" => 1
         ])->get();
 
+
         if (count($user) >= 1){
             $credentials = $request->only('email', 'password');
 
+
             if (Auth::attempt($credentials) && Auth::user()){
+
                 return redirect()->intended('admin/dashboard');
             }
         }
