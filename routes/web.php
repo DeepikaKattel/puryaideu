@@ -24,8 +24,10 @@ Auth::routes();
 Route::post('login/customer', 'Auth\LoginController@loginCustomer');
 Route::post('login/rider', 'Auth\LoginController@loginRider');
 Route::post('login/admin', 'Auth\LoginController@loginAdmin');
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['approved'])->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+Route::get('/approval', 'HomeController@approval')->name('approval');
 Route::get('/admin/dashboard', 'HomeController@admin')->name('admin/dashboard');
 Route::get('/admin/login', 'Auth\LoginController@admin')->name('admin/login');
 Route::get('/rider/login', 'Auth\LoginController@rider')->name('rider/login');

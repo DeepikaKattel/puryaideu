@@ -121,11 +121,14 @@ class RiderController extends Controller
         ]);
         $user->save();
 
+        $rider_user = $user->id;
+
         $rider = new Rider([
-            'user_id' => Auth::user()->id,
+            'user_id' => $rider_user,
             'license' => $request->input('license'),
             'experience' => $request->input('experience'),
         ]);
         $rider->save();
+        return redirect()->intended('home');
     }
 }

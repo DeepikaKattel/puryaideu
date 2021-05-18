@@ -228,12 +228,33 @@
                     </span>
                         @enderror
                     </div>
-{{--                    <div class="col-md-6">--}}
-{{--                        <input type="datetime-local" name="approved_at" value={{$approved}} hidden>--}}
-{{--                    </div>--}}
+                    <div class="col-md-6">
+                        <input type="datetime-local" name="approved_at" hidden>
+                    </div>
                 </div>
 
-                <button type="submit" formaction="{{ route('register') }}" class="btn-login btn--main">Sign Up</button>
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        <input type="text" class="form__field @error('license') is-invalid @enderror" placeholder="License" name="license" value="{{ old('license') }}" required autocomplete="license">
+
+                        @error('license')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" class="form__field @error('experience') is-invalid @enderror" placeholder="Experience" name="experience" value="{{ old('experience') }}" required autocomplete="experience">
+
+                        @error('experience')
+                        <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <button type="submit" formaction="{{ route('rider.register') }}" class="btn-login btn--main">Sign Up</button>
             </form>
         </div>
         <!-- Register Form Ends -->

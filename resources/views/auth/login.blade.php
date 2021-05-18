@@ -228,8 +228,9 @@
                     </span>
                     @enderror
                 </div>
+
                 <div class="col-md-6">
-                    <input type="datetime-local" name="approved_at" value={{$approved}} hidden>
+                    <input type="date" name="approved_at" hidden>
                 </div>
             </div>
 
