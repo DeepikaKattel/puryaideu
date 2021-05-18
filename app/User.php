@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     public function role() {
-        return $this->belongsTo(Roles::class);
+        return $this->belongsTo(Roles::class,'role','id');
     }
 
     public function isAdmin() {
@@ -52,5 +52,9 @@ class User extends Authenticatable
 
     public function isCustomer() {
         return $this->role == 3 ? TRUE : FALSE;
+    }
+
+    public function riders(){
+        return $this->hasMany(Rider::class,'user_id','id');
     }
 }

@@ -29,3 +29,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/dashboard', 'HomeController@admin')->name('admin/dashboard');
 Route::get('/admin/login', 'Auth\LoginController@admin')->name('admin/login');
 Route::get('/rider/login', 'Auth\LoginController@rider')->name('rider/login');
+
+Route::post('register/rider', 'RiderController@rider')->name('rider.register');

@@ -135,6 +135,7 @@
                         </span>
                     @enderror
                 </div>
+                <input type="text" name="role" value="3" hidden>
                 <div class="col-md-6">
                     <input id="email" type="email" placeholder="Email" class="form__field @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
@@ -228,11 +229,11 @@
                     @enderror
                 </div>
                 <div class="col-md-6">
-                    <input type="datetime-local" name="approved_at" value={{\Carbon\Carbon::now()}} hidden>
+                    <input type="datetime-local" name="approved_at" value={{$approved}} hidden>
                 </div>
             </div>
 
-            <button type="submit" class="btn-login btn--main">Sign Up</button>
+            <button type="submit" formaction="{{ route('register') }}" class="btn-login btn--main">Sign Up</button>
         </form>
     </div>
     <!-- Register Form Ends -->

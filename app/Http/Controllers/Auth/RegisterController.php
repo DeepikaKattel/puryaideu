@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -60,8 +62,6 @@ class RegisterController extends Controller
             'contact2' => ['required'],
             'city' => ['required'],
             'area' => ['required']
-
-
         ]);
     }
 
@@ -86,4 +86,7 @@ class RegisterController extends Controller
             'approved_at' => $data['approved_at']
         ]);
     }
+
+
+
 }
