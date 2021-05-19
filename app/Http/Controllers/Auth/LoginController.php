@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -85,11 +86,20 @@ class LoginController extends Controller
         ])->get();
 
 
+
+
         if (count($user) >= 1){
             $credentials = $request->only('email', 'password');
 
 
             if (Auth::attempt($credentials) && Auth::user()){
+
+                $users = User::all()->count();
+                Session::put('total_users', $users);
+
+                $usersUnapproved = User::whereNull('approved_at')->get();
+                $usersCount = count($usersUnapproved);
+                Session::put('total_users_unapproved', $usersCount);
 
                 return redirect()->intended('admin/dashboard');
             }
