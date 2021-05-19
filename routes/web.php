@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 
 Auth::routes();
+Route::get('/logout', 'HomeController@logout')->name('logout');
 
 //authenticate different users
 Route::post('login/customer', 'Auth\LoginController@loginCustomer');
@@ -31,6 +32,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/users_unapproved', 'UserController@unapproved')->name('admin.unapproved');
     Route::get('/users/{user_id}/approve', 'UserController@approve')->name('admin.approve');
 
+    Route::resource('/users', 'UserController');
     Route::get('/users/destroy/{id}', 'UserController@destroy')->name('u.destroy');
 });
 Route::get('/approval', 'HomeController@approval')->name('approval');

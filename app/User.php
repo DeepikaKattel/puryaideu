@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -37,8 +38,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function role() {
-        return $this->belongsTo(Roles::class,'role','id');
+    public function roles() {
+        return $this->belongsTo(Roles::class,'role');
     }
 
     public function isAdmin() {
@@ -46,7 +47,7 @@ class User extends Authenticatable
     }
 
     public function isRider() {
-        return $this->role == 2 || $this->user_role == 2 ? TRUE : FALSE;
+        return $this->role == 2 ? TRUE : FALSE;
     }
 
 
